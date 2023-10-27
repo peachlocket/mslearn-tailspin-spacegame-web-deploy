@@ -6,8 +6,8 @@ variables:
   releaseBranchName: 'release'
 
 schedules:
-- cron: '45 15 * * *'
-  displayName: 'Deploy at 7:45 AM GMT+8'
+- cron: '0 16 * * *'
+  displayName: 'Deploy at 8:00 AM GMT+8'
   branches:
     include:
     - release
