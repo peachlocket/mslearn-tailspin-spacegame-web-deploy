@@ -6,12 +6,12 @@ variables:
   releaseBranchName: 'release'
 
 schedules:
-- cron: '0 16 * * *'
-  displayName: 'Deploy at 8:00 AM GMT+8'
+- cron: '0 3 * * *'
+  displayName: 'Deploy every day at 3 A.M.'
   branches:
     include:
     - release
-  always: true
+  always: false
 
 stages:
 - stage: 'Build'
@@ -106,7 +106,7 @@ stages:
 - stage: 'Test'
   displayName: 'Deploy to the test environment'
   dependsOn: Dev
-  condition: eq(variables['Build.Reason'], 'Schedule')
+  #condition: eq(variables['Build.Reason'], 'Schedule')
   jobs:
   - deployment: Deploy
     pool:
